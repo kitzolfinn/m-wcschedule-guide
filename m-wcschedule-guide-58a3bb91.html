@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>再次遇见 · 世界杯赛程</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f3f4f6;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #1f2937;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            max-width: 820px;
+            width: 100%;
+        }
+        /* hero 段落 — 开场短句 */
+        .hero {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+            padding: 2.5rem 2.2rem;
+            margin-bottom: 1.8rem;
+            border: 1px solid #e5e7eb;
+        }
+        .hero h1 {
+            font-size: 2rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.75rem;
+            color: #111827;
+            line-height: 1.3;
+        }
+        .hero .opening {
+            font-size: 1.1rem;
+            color: #374151;
+            margin-top: 0.4rem;
+            padding-left: 0.25rem;
+            border-left: 3px solid #9ca3af;
+            padding-left: 1rem;
+        }
+        /* 承接段落卡片 */
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+            padding: 2rem 2.2rem;
+            margin-bottom: 1.8rem;
+            border: 1px solid #e5e7eb;
+        }
+        .card h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+        .card p {
+            margin-bottom: 1rem;
+            color: #334155;
+        }
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+        /* 特点列表 — 简洁克制 */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.4rem 0 1.6rem;
+        }
+        .feature-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e9edf2;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+            font-size: 0.98rem;
+            color: #1f2937;
+        }
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        .feature-list li::before {
+            content: "·";
+            color: #6b7280;
+            font-weight: 700;
+            font-size: 1.4rem;
+            line-height: 1;
+            margin-top: 0.05rem;
+        }
+        /* 温和结尾 */
+        .closing {
+            background: #ffffff;
+            border-radius: 18px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+            padding: 2rem 2.2rem;
+            margin-bottom: 1.8rem;
+            border: 1px solid #e5e7eb;
+            font-size: 0.98rem;
+            color: #374151;
+        }
+        .closing a {
+            color: #1d4ed8;
+            text-decoration: none;
+            border-bottom: 1px solid #bfdbfe;
+            transition: border-color 0.1s ease;
+        }
+        .closing a:hover {
+            border-bottom-color: #1d4ed8;
+        }
+        .closing .highlight-link {
+            display: inline-block;
+            margin-top: 0.6rem;
+            background: #f9fafb;
+            padding: 0.4rem 1rem;
+            border-radius: 40px;
+            border: 1px solid #d1d5db;
+            font-size: 0.95rem;
+            transition: background 0.15s;
+        }
+        .closing .highlight-link a {
+            border-bottom: none;
+            color: #1f2937;
+        }
+        .closing .highlight-link a:hover {
+            color: #1d4ed8;
+        }
+        .faq-summary {
+            margin-top: 1.2rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #e5e7eb;
+        }
+        .faq-summary details {
+            margin-bottom: 0.6rem;
+            cursor: pointer;
+        }
+        .faq-summary details summary {
+            font-weight: 450;
+            color: #1e293b;
+            padding: 0.15rem 0;
+        }
+        .faq-summary details p {
+            margin-top: 0.4rem;
+            padding-left: 0.8rem;
+            color: #4b5563;
+            font-size: 0.94rem;
+        }
+        /* 响应式 */
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem 0.75rem;
+            }
+            .hero {
+                padding: 1.8rem 1.4rem;
+            }
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            .card {
+                padding: 1.6rem 1.4rem;
+            }
+            .closing {
+                padding: 1.6rem 1.4rem;
+            }
+            .feature-list li {
+                font-size: 0.95rem;
+            }
+        }
+        .small-note {
+            font-size: 0.88rem;
+            color: #6b7280;
+            margin-top: 0.8rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 开场短句 hero -->
+        <div class="hero">
+            <h1>再次回到这里</h1>
+            <div class="opening">
+                你曾收藏过的那个日历页面，现在依然安静地更新着。<br>
+                每次大赛前夕，总会有人重新想起它。
+            </div>
+        </div>
+
+        <!-- 承接段落：从再次访问与收藏的角度 -->
+        <div class="card">
+            <h2>一场赛程，不只一次打开</h2>
+            <p>
+                很多人第一次找到这个站点，是因为搜索小组赛日期。后来，到了淘汰赛阶段又悄悄回来，看一眼时间有没有调整。浏览器收藏夹里那个叫「世界杯赛程」的链接，不知不觉陪了好几届。
+            </p>
+            <p>
+                页面上没有弹窗，没有倒计时音效，只有每个比赛日的日期、对阵和场地。你关掉页面，它不会追着你提醒；你再次打开，它还是上次那个样子，只是日期已经更新。
+            </p>
+            <!-- 特点列表 -->
+            <ul class="feature-list">
+                <li>每轮赛程按比赛日排列，小组赛与淘汰赛分开显示</li>
+                <li>包含开球时间（当地时间与北京时间对照）及场地信息</li>
+                <li>页面轻量，打开快，不追踪浏览行为</li>
+                <li>适合保存到主屏幕或浏览器书签，随时回看</li>
+            </ul>
+            <p style="font-size:0.95rem; color:#4b5563;">
+                偶尔的时区调整或场地变更，也会在页面中标注。没有推送，但信息会及时更新。
+            </p>
+        </div>
+
+        <!-- 再一个卡片：持续关注 / 场景描述 -->
+        <div class="card">
+            <h2>从收藏到习惯</h2>
+            <p>
+                你未必每天打开它，但每隔几天，尤其在比赛密集的阶段，总会想起还有这样一个地方。不需要登录，不需要注册，甚至连 cookies 都不存。打开就是赛程，关上就是再见。
+            </p>
+            <p>
+                有用户说，他们会在每个比赛周开始前把页面截个图，发到家庭群或朋友群里。也有人把链接放在手机桌面，像一本随时翻阅的小册子。它不制造氛围，只提供事实。
+            </p>
+            <p style="margin-top: 0.8rem;">
+                <span style="background:#f1f5f9; padding:0.1rem 0.8rem; border-radius:100px; font-size:0.9rem;">如果你还没收藏，现在也不晚。</span>
+            </p>
+        </div>
+
+        <!-- 温和结尾 + FAQ 摘要 + 嵌入链接 -->
+        <div class="closing">
+            <p>
+                这个页面没有华丽的交互，也没有会员体系，但它一直在这里。下一次你再想知道「下一场几点踢」或者「淘汰赛哪天开始」，那个收藏夹里的名字依然可靠。
+            </p>
+            <p>
+                你可以把它记在备忘录，或者直接保存这个地址：<span class="highlight-link"><a href="https://m-wcschedule.com">世界杯赛程</a></span>。
+            </p>
+            <p style="margin-top: 1rem; font-size:0.96rem;">
+                它不会变化得很频繁，但每次变化都意味着又有一轮比赛临近了。
+            </p>
+
+            <!-- FAQ 摘要 —— 简单两个问题，保持真实 -->
+            <div class="faq-summary">
+                <details>
+                    <summary>赛程会提前多久发布？</summary>
+                    <p>通常在抽签结果公布后，小组赛赛程就会基本确定。淘汰赛阶段的日期会在小组赛进行期间逐步明确，页面会同步更新。</p>
+                </details>
+                <details>
+                    <summary>页面上的时间都是北京时间吗？</summary>
+                    <p>是的，所有比赛时间均显示为北京时间（东八区）。部分页面也会附加当地时间的参考信息，方便在不同地区查看。</p>
+                </details>
+            </div>
+            <div class="small-note">
+                一次收藏，反复使用。
+            </div>
+        </div>
+    </div>
+</body>
+</html>

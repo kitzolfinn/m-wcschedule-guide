@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>壹号娱乐 · 知识库导航</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(145deg, #fbe9d7 0%, #f7d9c4 50%, #f3cdb0 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 2rem 1rem;
+            line-height: 1.7;
+            color: #3e3029;
+        }
+
+        .container {
+            max-width: 1160px;
+            width: 100%;
+            background: rgba(255, 250, 245, 0.75);
+            backdrop-filter: blur(2px);
+            border-radius: 48px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 20px 40px -12px rgba(120, 70, 40, 0.25);
+        }
+
+        /* 目录感网格 */
+        .grid-dir {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem 1.8rem;
+            margin: 2rem 0 1.5rem;
+        }
+
+        .dir-card {
+            background: white;
+            border-radius: 28px;
+            padding: 1.5rem 1.8rem;
+            box-shadow: 0 8px 20px rgba(160, 100, 60, 0.08);
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255, 220, 190, 0.3);
+        }
+
+        .dir-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 28px rgba(150, 90, 50, 0.12);
+            border-color: #ecc6a8;
+        }
+
+        .dir-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            color: #7a4f3a;
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .dir-card p {
+            font-size: 0.95rem;
+            color: #5f4a3c;
+            margin-bottom: 0.1rem;
+        }
+
+        .dir-card .tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            background: #f3e0d1;
+            color: #6d4d3b;
+            padding: 0.15rem 0.7rem;
+            border-radius: 30px;
+            margin-top: 0.5rem;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 0.8rem 0 0.2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #5d3a28, #9b6b4f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #6d5241;
+            max-width: 680px;
+            margin: 0 auto 1.2rem;
+            background: rgba(255, 240, 228, 0.7);
+            padding: 0.5rem 1.5rem;
+            border-radius: 60px;
+            display: inline-block;
+            backdrop-filter: blur(2px);
+        }
+
+        .intro-text {
+            background: white;
+            border-radius: 36px;
+            padding: 1.8rem 2.2rem;
+            margin: 1.8rem 0;
+            box-shadow: 0 4px 16px rgba(140, 80, 40, 0.06);
+            font-size: 1rem;
+        }
+
+        .intro-text p {
+            margin-bottom: 1.2rem;
+        }
+
+        .intro-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .link-sentence {
+            background: #fef8f2;
+            border-radius: 60px;
+            padding: 0.4rem 1.8rem 0.4rem 2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            flex-wrap: wrap;
+            margin: 0.6rem 0 0.8rem;
+            border: 1px solid #edd5c2;
+        }
+
+        .link-sentence a {
+            color: #7a4a30;
+            font-weight: 600;
+            text-decoration: none;
+            background: #f3ddcc;
+            padding: 0.1rem 0.8rem;
+            border-radius: 40px;
+            transition: background 0.15s, color 0.15s;
+            font-size: 0.98rem;
+        }
+
+        .link-sentence a:hover {
+            background: #dbbc9f;
+            color: #3d2a1e;
+        }
+
+        .tip-area {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 2rem 0 1rem;
+        }
+
+        .tip-box {
+            flex: 1 1 200px;
+            background: white;
+            border-radius: 30px;
+            padding: 1.2rem 1.5rem;
+            border-left: 6px solid #dbb094;
+            box-shadow: 0 2px 10px rgba(140, 80, 50, 0.04);
+        }
+
+        .tip-box strong {
+            display: block;
+            font-weight: 600;
+            color: #623f2d;
+            margin-bottom: 0.3rem;
+        }
+
+        .tip-box p {
+            font-size: 0.9rem;
+            color: #4f3d32;
+        }
+
+        .faq-mini {
+            background: white;
+            border-radius: 32px;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0 0.5rem;
+            box-shadow: 0 4px 16px rgba(130, 80, 40, 0.05);
+        }
+
+        .faq-mini details {
+            border-bottom: 1px solid #f0ddd0;
+            padding: 0.8rem 0;
+        }
+
+        .faq-mini details:last-child {
+            border-bottom: none;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            color: #4d3629;
+            cursor: pointer;
+            padding: 0.2rem 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .faq-mini summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-mini summary::before {
+            content: "▸";
+            color: #b5876a;
+            font-size: 1.1rem;
+            transition: transform 0.15s;
+        }
+
+        .faq-mini details[open] summary::before {
+            transform: rotate(90deg);
+        }
+
+        .faq-mini p {
+            margin: 0.5rem 0 0.1rem 1.8rem;
+            font-size: 0.9rem;
+            color: #5c4538;
+        }
+
+        .related-info {
+            margin: 2rem 0 0.2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 2rem;
+            background: rgba(255, 245, 235, 0.5);
+            border-radius: 40px;
+            padding: 1rem 1.8rem;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(2px);
+        }
+
+        .related-info span {
+            font-size: 0.9rem;
+            color: #6b4d3b;
+        }
+
+        .related-info .badge {
+            background: #e8cfbb;
+            color: #492f22;
+            padding: 0.15rem 1rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #876d5b;
+            margin-top: 2.5rem;
+            border-top: 1px solid #edd5c0;
+            padding-top: 1.5rem;
+        }
+
+        @media (max-width: 780px) {
+            .container {
+                padding: 1.8rem 1.2rem;
+            }
+
+            .grid-dir {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .intro-text {
+                padding: 1.5rem;
+            }
+
+            .link-sentence {
+                padding: 0.3rem 1rem 0.3rem 1.2rem;
+            }
+
+            .tip-area {
+                flex-direction: column;
+            }
+
+            .faq-mini {
+                padding: 1.2rem;
+            }
+
+            .related-info {
+                flex-direction: column;
+                text-align: center;
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 1rem 0.6rem;
+            }
+
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+
+            .hero .sub {
+                font-size: 0.95rem;
+                padding: 0.3rem 1rem;
+            }
+
+            .dir-card {
+                padding: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- hero 区 -->
+        <div class="hero">
+            <h1>壹号娱乐</h1>
+            <div class="sub">内容 · 互动 · 知识 · 资讯</div>
+        </div>
+
+        <!-- 目录感卡片网格 -->
+        <div class="grid-dir">
+            <div class="dir-card">
+                <h3>📚 平台概览</h3>
+                <p>了解壹号娱乐所提供的数字内容类型、更新节奏与主要服务方向。</p>
+                <span class="tag">使用场景</span>
+            </div>
+            <div class="dir-card">
+                <h3>🔍 功能指引</h3>
+                <p>快速定位浏览、检索、收藏、社区互动等模块，熟悉界面布局。</p>
+                <span class="tag">新用户</span>
+            </div>
+            <div class="dir-card">
+                <h3>📌 热门内容</h3>
+                <p>汇集当下关注度较高的项目、系列与话题，便于及时跟进。</p>
+                <span class="tag">动态</span>
+            </div>
+            <div class="dir-card">
+                <h3>⚙️ 账户与设置</h3>
+                <p>管理个人偏好、通知、隐私选项及账号关联服务。</p>
+                <span class="tag">个性化</span>
+            </div>
+        </div>
+
+        <!-- 介绍区 -->
+        <div class="intro-text">
+            <p>
+                初次来到这个站点，你可能会好奇它的核心用途。简单来说，<a href="https://index-oneentertainment.com" style="font-weight:600;color:#7a4a30;text-decoration:underline;text-underline-offset:3px;">壹号娱乐</a>是一个整合了多种娱乐内容与信息的知识型平台。在这里你能找到经过梳理的专题、分类清晰的资源索引以及社区沉淀下来的讨论精华。
+            </p>
+            <p>
+                网站没有采用密集的广告或强推销路径，而是更倾向于让用户自己探索感兴趣的区域。无论你是想快速查阅某个主题的背景资料，还是希望发现新的休闲内容，这里都提供了相对安静的入口。
+            </p>
+            <div class="link-sentence">
+                <span>如果你还没浏览过主站，可以先去</span>
+                <a href="https://index-oneentertainment.com">壹号娱乐</a>
+                <span>感受整体氛围。</span>
+            </div>
+        </div>
+
+        <!-- 提示区 + 说明 -->
+        <div class="tip-area">
+            <div class="tip-box">
+                <strong>💡 使用提示</strong>
+                <p>站内搜索支持关键词与分类筛选，善用标签可更快定位相关内容。</p>
+            </div>
+            <div class="tip-box">
+                <strong>📖 说明</strong>
+                <p>内容由编辑与用户共同维护，部分板块需登录后可见。</p>
+            </div>
+            <div class="tip-box">
+                <strong>🧩 适用场景</strong>
+                <p>日常浏览、兴趣拓展、信息收集、轻度社交。</p>
+            </div>
+        </div>
+
+        <!-- FAQ 摘要 -->
+        <div class="faq-mini">
+            <details>
+                <summary>壹号娱乐主要涵盖哪些内容类型？</summary>
+                <p>包括但不限于图文专题、短评、列表索引、用户推荐和部分多媒体内容。整体偏重知识梳理与娱乐资讯的结合。</p>
+            </details>
+            <details>
+                <summary>是否需要注册才能使用？</summary>
+                <p>大部分浏览功能无需注册。评论、收藏、个性化推荐等功能则需要创建账号。</p>
+            </details>
+            <details>
+                <summary>内容更新频率如何？</summary>
+                <p>核心板块保持每日或每周更新，具体节奏视内容类别而定。首页会展示最近更新的条目。</p>
+            </details>
+        </div>
+
+        <!-- 相关信息区 -->
+        <div class="related-info">
+            <span class="badge">相关信息</span>
+            <span>📂 内容索引 · 分类导航 · 用户手册</span>
+            <span>🔄 最近更新：2025 · 春季</span>
+        </div>
+
+        <div class="footer-note">
+            本站为介绍页 · 主站由 <a href="https://index-oneentertainment.com" style="color:#5e3b2a;text-decoration:underline;text-underline-offset:2px;">壹号娱乐</a> 提供运营
+        </div>
+    </div>
+</body>
+</html>
